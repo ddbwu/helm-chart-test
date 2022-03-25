@@ -3,7 +3,17 @@ entries:
   helloworld:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-03-25T09:44:26.497977548-04:00"
+    created: "2022-03-25T09:53:55.109503223-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 24dd8c8950630fd4204c321fc825e70906af51abb4cd94bbf2d7117ae352f9cd
+    name: helloworld
+    type: application
+    urls:
+    - https://ddbwu.github.io/helm-chart-test/helloworld-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-03-25T09:53:55.108908038-04:00"
     description: A Helm chart for Kubernetes
     digest: 8b2670d3c258709be967c9eeb3a2a5735d7c4248c4caba5454ebb0891be3dc6f
     name: helloworld
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://ddbwu.github.io/helm-chart-test/helloworld-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-25T09:44:26.494682642-04:00"
+generated: "2022-03-25T09:53:55.108079578-04:00"
