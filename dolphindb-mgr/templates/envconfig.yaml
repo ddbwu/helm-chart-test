@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    dolphindb.io/component.config: config
+  name: dolphindb-env-config
+data:
+  env-config: |-
+    global:
+      storageClass: {{ .Values.global.storageClass }}
+      imageRepository: {{ include "repository" . }}
+    dolphindb:
+      serviceType: {{ include "dolphindb.service.type" . }}
+      licenseName: {{ .Values.license.name }}
+      controllerDataSize: {{ .Values.dolphindb.controllerDataSize }}
+      datanodeDataSize: {{ .Values.dolphindb.datanodeDataSize }}
+      {{- with .Values.license.resources }}
+      resources:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      images:
+        versions:
+          - version: v1.30.14
+          - version: v1.30.15
+          - version: v2.00.3
+        default:
+          dolphindb-init: {{ include "dolphindb-init.default.tag" . }}
+          dolphindb-partner: {{ include "dolphindb-partner.default.tag" . }}

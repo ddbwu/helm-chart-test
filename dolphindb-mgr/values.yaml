@@ -1,0 +1,37 @@
+global:
+  registry: ""
+  repository: dolphindb
+  storageClass: ""
+  serviceType: NodePort
+  serviceAccount: dolphindb-mgr-sa
+  version: v1.0.0
+  allNamespace: false
+
+dolphindb-operator:
+  replicaCount: 2
+  imageTag: ""
+
+dolphindb-webserver:
+  replicaCount: 2
+  imageTag: ""
+  nodePortIP: ""
+
+dolphindb:
+  serviceType: ""
+  controllerDataSize: 200Mi
+  datanodeDataSize: 200Mi
+  images:
+    default:
+      dolphindbInit: ""
+      dolphindbPartner: ""
+
+license:
+  name: dolphindb-license
+  content: ""
+  resources:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 1
+      memory: 1Gi
