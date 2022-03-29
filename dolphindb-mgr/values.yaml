@@ -4,26 +4,33 @@ global:
   storageClass: ""
   serviceType: NodePort
   serviceAccount: dolphindb-mgr-sa
-  version: v1.0.0
+  version: v1.0.1
   allNamespace: false
+  localTimeFileHostPath: "/etc/localtime"
 
 dolphindb-operator:
+  enabled: true
   replicaCount: 2
   imageTag: ""
 
 dolphindb-webserver:
+  enabled: true
   replicaCount: 2
   imageTag: ""
   nodePortIP: ""
 
 dolphindb:
   serviceType: ""
+  coreDumpDir: "/data/ddb/core"
+  localTimeFileMountPath: "/etc/localtime"
   controllerDataSize: 200Mi
   datanodeDataSize: 200Mi
   images:
     default:
-      dolphindbInit: ""
-      dolphindbPartner: ""
+      dolphindbConfigLoader: ""
+      dolphindbServiceManager: ""
+      dolphindbExporter: ""
+      dolphindbCleaner: ""
 
 license:
   name: dolphindb-license
@@ -35,3 +42,9 @@ license:
     requests:
       cpu: 1
       memory: 1Gi
+
+grafana:
+  enabled: true
+
+prometheus:
+  enabled: true

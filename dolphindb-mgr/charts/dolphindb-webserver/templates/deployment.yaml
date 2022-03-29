@@ -19,15 +19,20 @@ spec:
         app.kubernetes.io/name: {{ include "dolphindbWebserver.fullName" . }}
     spec:
       terminationGracePeriodSeconds: 0
-      serviceAccountName: {{ .Values.global.serviceAccount }}
+      serviceAccountName: {{ include "global.serviceaccount.name" . }}
       containers:
         - name: dolphindb-webserver
           image: {{ include "repository" . }}/dolphindb-webserver:{{ include "dolphindbWebserver.imageTag" . }}
           imagePullPolicy: IfNotPresent
           env:
-            {{- include "mgr.env" . | indent 10}}
-          - name: NodePortIP
-            value: {{ .Values.nodePortIP }}
+            - name: NodePortIP
+              value: {{ .Values.nodePortIP }}
+            {{- include "mgr.env" . | indent 12}}
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: localtime
+      volumes:
+        {{- include "mgr.localtime.volume" . | indent 8}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -1,11 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ .Values.global.serviceAccount }}
+  name: {{ include "global.serviceaccount.name" . }}
 rules:
   - apiGroups:
       - ""
       - apps
+      - batch
       - storage.k8s.io
       - rbac.authorization.k8s.io
       - dolphindb.dolphindb.io
@@ -17,8 +18,10 @@ rules:
       - persistentvolumeclaims
       - serviceaccounts
       - pods
+      - pods/exec
       - statefulsets
       - deployments
+      - jobs
       - storageclasses
       - roles
       - rolebindings

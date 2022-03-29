@@ -6,6 +6,10 @@
     {{- end -}}
 {{- end -}}
 
+{{- define "global.serviceaccount.name" -}}
+{{- printf "%s-%s" .Values.global.serviceAccount ( include "work.namespace" .) -}}
+{{- end -}}
+
 {{- define "global.service.type" -}}
 {{- default "NodePort" .Values.global.serviceType -}}
 {{- end -}}
@@ -14,12 +18,20 @@
 {{- default (include "global.service.type" .) .Values.dolphindb.serviceType -}}
 {{- end -}}
 
-{{- define "dolphindb-init.default.tag" -}}
-{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbInit -}}
+{{- define "dolphindb-config-loader.default.tag" -}}
+{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbConfigLoader -}}
 {{- end -}}
 
-{{- define "dolphindb-partner.default.tag" -}}
-{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbPartner -}}
+{{- define "dolphindb-service-manager.default.tag" -}}
+{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbServiceManager -}}
+{{- end -}}
+
+{{- define "dolphindb-exporter.default.tag" -}}
+{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbExporter -}}
+{{- end -}}
+
+{{- define "dolphindb-cleaner.default.tag" -}}
+{{- default .Values.global.version .Values.dolphindb.images.default.dolphindbCleaner -}}
 {{- end -}}
 
 {{- define "repository" -}}
@@ -38,4 +50,14 @@
       fieldPath: metadata.namespace
 - name: WorkNamespace
   value: {{ include "work.namespace" . }}
+{{- end }}
+
+{{- define "localtime.filehostpath" -}}
+{{- default "/etc/localtime" .Values.global.localTimeFileHostPath -}}
+{{- end -}}
+
+{{- define "mgr.localtime.volume" }}
+- hostPath:
+    path: {{ include "localtime.filehostpath" . }}
+  name: localtime
 {{- end }}
