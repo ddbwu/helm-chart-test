@@ -3,7 +3,7 @@ entries:
   dolphindb-mgr:
   - apiVersion: v2
     appVersion: v1.0.1
-    created: "2022-03-29T10:08:17.693369499Z"
+    created: "2022-03-29T12:21:45.005363187Z"
     dependencies:
     - condition: dolphindb-operator.enabled
       name: dolphindb-operator
@@ -18,7 +18,7 @@ entries:
       name: prometheus
       repository: ""
     description: A Helm chart for Kubernetes
-    digest: 7b501434f8a845e91165932ecf69d23b416994c88454358897800cb6ff421715
+    digest: ca74ac6b56ca3b72bd00966d5cb4a7c8b78b75cd71df6744b1470d72961b7579
     name: dolphindb-mgr
     type: application
     urls:
@@ -26,7 +26,7 @@ entries:
     version: v1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-03-29T10:08:17.689839263Z"
+    created: "2022-03-29T12:21:45.00214979Z"
     description: A Helm chart for Kubernetes
     digest: 51855e4ce371db0947678004643eb737a13bd16cc3809318ba904a4ebbab8d81
     name: dolphindb-mgr
@@ -37,7 +37,7 @@ entries:
   helloworld:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-03-29T10:08:17.694114767Z"
+    created: "2022-03-29T12:21:45.006084707Z"
     description: A Helm chart for Kubernetes
     digest: 24dd8c8950630fd4204c321fc825e70906af51abb4cd94bbf2d7117ae352f9cd
     name: helloworld
@@ -47,7 +47,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-03-29T10:08:17.693727068Z"
+    created: "2022-03-29T12:21:45.005739505Z"
     description: A Helm chart for Kubernetes
     digest: 8b2670d3c258709be967c9eeb3a2a5735d7c4248c4caba5454ebb0891be3dc6f
     name: helloworld
@@ -55,4 +55,4 @@ entries:
     urls:
     - https://ddbwu.github.io/helm-chart-test/helloworld-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-29T10:08:17.688790341Z"
+generated: "2022-03-29T12:21:45.001126401Z"
